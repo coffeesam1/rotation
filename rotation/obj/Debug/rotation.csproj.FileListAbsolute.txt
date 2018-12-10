@@ -1,0 +1,6 @@
+c:\users\benz8\onedrive\documents\visual studio 2017\Projects\rotation\rotation\bin\Debug\rotation.exe.config
+c:\users\benz8\onedrive\documents\visual studio 2017\Projects\rotation\rotation\bin\Debug\rotation.exe
+c:\users\benz8\onedrive\documents\visual studio 2017\Projects\rotation\rotation\bin\Debug\rotation.pdb
+c:\users\benz8\onedrive\documents\visual studio 2017\Projects\rotation\rotation\obj\Debug\rotation.csprojResolveAssemblyReference.cache
+c:\users\benz8\onedrive\documents\visual studio 2017\Projects\rotation\rotation\obj\Debug\rotation.exe
+c:\users\benz8\onedrive\documents\visual studio 2017\Projects\rotation\rotation\obj\Debug\rotation.pdb
