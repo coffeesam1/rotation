@@ -24,46 +24,30 @@ namespace rotation
 
         }
 
-        public static string[,] rotate( string[,] matrix)
+
+        public static string[,] rotate(string[,] matrix)
         {
-            int nprime = 0;
-            for(int i=0; i < n; i++)
+            for(int layer = 0; layer<n/2; layer++)
             {
-                nprime = n-i;
-
-                for(int j=i; j < n-i; j++)
+                int first = layer;
+                int last = n - 1 - layer;
+                for(int i = first; i < last; i++)
                 {
-                   //if(j == i)
-                   // {
-                        //0,0
-                        string temp1 = matrix[i, j];
-                        //0,4
-                        string temp2 = matrix[i, n-1-j];
-                        //4,4
-                        string temp3 = matrix[n - 1 - i, n-1-j];
-                        //4,0
-                        string temp4 = matrix[n - i - 1, j];
+                    int offset = i - first;
 
-                        matrix[i,j] = temp4;
-                        matrix[i, n - 1 - j] = temp1;
-                        matrix[n - 1 - i, n - 1 - j] = temp2;
-                        matrix[n - i - 1, j] = temp3;
-                        //matrix[i, n-1-i] = matrix[i, j];
+                    string top = matrix[first,i];
 
-                        //temp2 = matrix[n-i-1, j];
-                        //matrix[n-1-i, j] = temp;
+                    //left -> top
+                    matrix[first, i] = matrix[last - offset, first];
 
+                    //bottom -> left
+                    matrix[last - offset, first] = matrix[last, last - offset];
 
-                        //temp = matrix[n - 1- i, i];
-                        //matrix[n - 1, i] = temp2;
+                    //right -> bottom
+                    matrix[last, last - offset] = matrix[i, last];
 
-                        //matrix[i, j] = temp;
-
-                    //}
-
-                        //break;
-
-                    //Console.Write(matrix[i, j] + "|");
+                    //top -> right
+                    matrix[i, last] = top;
 
                 }
             }
@@ -71,7 +55,65 @@ namespace rotation
             return matrix;
         }
 
-        public static string[,] buildMatrix()
+
+            /*
+            public static string[,] rotate( string[,] matrix)
+            {
+                int nprime = 0;
+                for(int i=0; i < n; i++)
+                {
+                    nprime = n-i;
+
+                    for(int j=i; j < n-i; j++)
+                    {
+                       if(j == i)
+                       {
+
+                            //0,0
+                            string temp1 = matrix[i, j];
+                            //0,4
+                            string temp2 = matrix[i, n-1-j];
+                            //4,4
+                            string temp3 = matrix[n - 1 - i, n-1-j];
+                            //4,0
+                            string temp4 = matrix[n - i - 1, j];
+
+                            matrix[i,j] = temp4;
+                            matrix[i, n - 1 - j] = temp1;
+                            matrix[n - 1 - i, n - 1 - j] = temp2;
+                            matrix[n - i - 1, j] = temp3;
+
+
+                        }
+                        else if(j!=n-1 && j != 0)
+                        {
+
+                            //0,1
+                            string temp1 = matrix[i, j];
+                            //4,1
+                            string temp2 = matrix[n - 1 - j, i];
+                            //4,3
+                            string temp3 = matrix[n - 1 - i, n - 1 - j];
+                            //0,1
+                            string temp4 = matrix[i, n - 1 - j];
+
+                            matrix[i, j] = temp4;
+                            matrix[n - 1 - j, i] = temp1;
+                            matrix[n - 1 - i, n - 1 - j] = temp2;
+                            matrix[i, n - 1 - j] = temp3;
+                        }
+
+                        //break;
+
+                        //Console.Write(matrix[i, j] + "|");
+
+                    }
+                }
+
+                return matrix;
+            }
+            */
+            public static string[,] buildMatrix()
         {
             string[,] matrix = new string[n, n];
 
